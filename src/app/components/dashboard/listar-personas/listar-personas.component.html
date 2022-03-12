@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Listado de Personas</span>
+            <h5 style="margin-top: 30px;" *ngIf="personas.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="personas.length > 0" class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Comunidad</th>
+                    <th>Operadora</th>
+                    <th>Número</th>
+                    <th>Fecha Nacimientos</th>
+                    <th>Puntos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let persona of personas">
+                    <td>{{ persona.nombre }}</td>
+                    <td>{{ persona.email }}</td>
+                    <td>{{ persona.comunidad}}</td>
+                    <td>{{ persona.operadora }}</td>
+                    <td>{{ persona.numero }}</td>
+                    <td>{{ persona.fechaNacimiento }}</td>
+                    <td>{{ persona.puntos }}</td>
+                    <!-- <td>
+                      <i class="fas fa-edit fa-lg text-info mr-2" ></i>
+                      <i  class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

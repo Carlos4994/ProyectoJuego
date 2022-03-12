@@ -1,0 +1,10 @@
+.navbarclmg{
+    background-color: transparent;
+    border-color: transparent;
+    background-image: url(./../../../../assets/imagenes/navar.png);
+    width:100%;
+    height:40px;
+    background-size: contain;
+    background-position:center;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,120 @@
+<div class="container mt-5">
+    <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+        <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="!loading" class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center titulo">Registrar Usuario</h3>
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <img class="text center" src="https://cactu.org.ec/wp-content/uploads/2019/11/bbbbbb.png" height="80px">
+                       </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="agregarPersona()">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                                placeholder="Nombre">
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('nombre')?.hasError('required') && registerForm.get('nombre')?.touched">
+                                El Nombre <strong>es requerido</strong>
+                            </span>
+                            </div>
+                            <div class="col">
+                                <input type="text" formControlName="numero" class="form-control form-control-lg"
+                                placeholder="Número">
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('numero')?.hasError('required') && registerForm.get('numero')?.touched">
+                                El Número <strong>es requerido</strong>
+                            </span>
+                            </div>
+                            <div class="col">
+                                <select formControlName="operadora" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    <option selected>Operadora</option>
+                                    <option value="1">Claro</option>
+                                    <option value="2">Movistar</option>
+                                    <option value="3">Tuenti</option>
+                                    <option value="4">Cnt</option>
+                                  </select>
+
+                            </div>
+                          </div>
+                        
+
+
+                          <div class="row mb-3">
+                            <div class="col">
+                                <select formControlName="comunidad" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    <option selected>Comunidad</option>
+                                    <option value="1">Tisaleo Centro</option>
+                                    <option value="2">Tisaleo Alto</option>
+                                    <option value="3">Cevallos</option>
+                                    <option value="4">Unamuncho-Puerto Arturo</option>
+                                    <option value="5">Santa Rosa Baja</option>
+                                    <option value="6">Santa Rosa Alta</option>
+                                    <option value="7">Santa Rosa Alta- Baja</option>
+                                    <option value="8">Santa Rosa Centro</option>
+                                  </select>
+                            </div>
+                            <div class="col">
+                                <select    formControlName="gestor" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    <option selected>Gestorxs</option>
+                                    <option value="1">Lorena Peralta</option>
+                                    <option value="2">Jaime Vaca</option>
+                                    <option value="3">Gabriela Lozada</option>
+                                    <option value="4">Margarita Moreno</option>
+                                    <option value="5">Wilma Toalombo</option>
+                                    <option value="6">José Tisalema</option>
+                                    <option value="7">Sonia Jinde</option>
+                                    <option value="8">Rocío Villares</option>
+                                  </select>
+                            </div>
+                            <div class="col">
+                                <input  formControlName="fechaNacimiento" type="date"  class="form-control form-control-lg"
+                                placeholder="Número">
+                            </div>
+                          </div>
+                        
+                        <!-- inicio de registro de usuario y contraseña -->
+                        <div class="mb-3">
+                            <input type="text" formControlName="usuario" class="form-control form-control-lg"
+                                placeholder="Correo">
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('usuario')?.hasError('required') && registerForm.get('usuario')?.touched">
+                                El Correo <strong>es requerido</strong>
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('usuario')?.hasError('email') && registerForm.get('usuario')?.touched">
+                                Correo <strong>invalido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" formControlName="password" class="form-control form-control-lg"
+                                placeholder="Contraseña">
+                            <span class="text-danger"
+                                *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+                                La Contraseña <strong>es requerida</strong>
+                            </span>
+                            <span class="text-danger"
+                            *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
+                            La Contraseña como minimo <strong>debe tener 6 caracteres</strong>
+                        </span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" formControlName="repetirPassword" class="form-control form-control-lg"
+                                placeholder="Repetir Contraseña">
+                            <span class="text-danger" *ngIf="registerForm.hasError('notSame')">
+                                Contraseñas <strong>distintas</strong>
+                            </span>
+                        </div>
+                        <button routerLink="/usuario" class="btn btn-secondary btn-lg">Volver</button>
+                        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-lg float-end">Aceptar</button>
+                    </form>
+
+
+                    <button (click)="obtenerPersona()" class="btn btn-secondary btn-lg">Probar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: black;
+    
+    
+}
+.fondo{
+    background-color: rgb(233, 233, 236);
+}
