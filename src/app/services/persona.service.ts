@@ -15,8 +15,8 @@ export class PersonaService {
     return this._firestore.collection('personas').add(persona);
   }
 
-  getPersona(email: string): Observable<any> {
-    return this._firestore.collection('personas').doc(email).snapshotChanges();
+  getPersona(id: string): Observable<any> {
+    return this._firestore.collection('personas').doc(id).snapshotChanges();
   }
 
   getPersonas(): Observable<any> {
