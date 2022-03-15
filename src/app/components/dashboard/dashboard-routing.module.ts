@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'listarPersonas', component: ListarPersonasComponent },
   { path: 'listarPremio', component: ListPremiosComponent },
   { path: 'crearPremio', component: CrearPremioComponent },
+  { path: 'editarPremio/:id', component: CrearPremioComponent },
 ];
 
 @NgModule({

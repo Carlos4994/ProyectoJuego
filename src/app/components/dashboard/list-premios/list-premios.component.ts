@@ -30,8 +30,8 @@ export class ListPremiosComponent implements OnInit {
 
   eliminarEmpleado(id: string) {
     this._premioService.eliminarpremio(id).then(() => {
-      console.log('empelado eliminado con exito');
-      this.toastr.error('El empleado fue eliminado con exito', 'Registro eliminado!', {
+      console.log('Premio eliminado con exito');
+      this.toastr.error('El Premio fue eliminado con exito', 'Registro eliminado!', {
         positionClass: 'toast-bottom-right'
       });
     }).catch(error => {

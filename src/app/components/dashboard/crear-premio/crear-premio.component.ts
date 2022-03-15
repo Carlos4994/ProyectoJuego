@@ -60,7 +60,7 @@ export class CrearPremioComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
       this.loading = false;
-      this.router.navigate(['/list-empleados']);
+      this.router.navigate(['/dashboard/listarPremio']);
     }).catch(error => {
       console.log(error);
       this.loading = false;
