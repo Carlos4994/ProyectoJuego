@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PersonaService } from '../../../services/persona.service';
 
 @Component({
@@ -8,21 +9,27 @@ import { PersonaService } from '../../../services/persona.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  
+ 
   submitted = false;
   loading = false;
   createPerfil:FormGroup;
-  id: string ='YnFMwjY02rnEfZlxPDtf';
+  id: string ='';
+  toastr: any;
 
 
   constructor(private fb: FormBuilder,
-    private _servicePersona: PersonaService
+    private _servicePersona: PersonaService,
+    private router: Router,
   ) {
     this.createPerfil= this.fb.group({
       nombre:['',[Validators.required]],
       email:['',[Validators.required]],
       numero:['',[Validators.required]],
       operadora:['',[Validators.required]],
+      puntos:[''],
+      comunidad:[''],
+      gestor:[''],
+      fechaNacimiento:['']
     })
    }
 
@@ -44,32 +51,37 @@ export class PerfilComponent implements OnInit {
     // }
 
   }
-  editarEmpleado(id: string) {
+  
 
-    // const empleado: any = {
-    //   nombre: this.createEmpleado.value.nombre,
-    //   apellido: this.createEmpleado.value.apellido,
-    //   documento: this.createEmpleado.value.documento,
-    //   salario: this.createEmpleado.value.salario,      
-    //   fechaActualizacion: new Date()
-    // }
+  editarPersona() {
+    const persona: any = {
+      email:this.createPerfil.value.email,
+      nombre: this.createPerfil.value.nombre,
+      numero:this.createPerfil.value.numero,
+      operadora:this.createPerfil.value.operadora,
+      comunidad: this.createPerfil.value.comunidad,
+      gestor: this.createPerfil.value.gestor,
+      fechaNacimiento:this.createPerfil.value.fechaNacimiento,
+      puntos:0,
+     
+    }
+    this.loading = true;
 
-    // this.loading = true;
-
-    // this._empleadoService.actualizarEmpleado(id, empleado).then(() => {
-    //   this.loading = false;
-    //   this.toastr.info('El empleado fue modificado con exito', 'Empleado modificado', {
-    //     positionClass: 'toast-bottom-right'
-    //   })
-    //   this.router.navigate(['/list-empleados']);
-    // })
+    this._servicePersona.actualizarPersona(this.id,persona).then(() => {
+      this.loading = false;
+      this.toastr.success('Perfil editado correctamente!', 'Perfil editado!');
+      
+    })
+    this.router.navigate(['/']);
   }
 
+
+
   esEditar() {
-  console.log('hola');
+ 
   //  if (this.id !== null) {
       this.loading = true;
-      this.id='YnFMwjY02rnEfZlxPDtf';
+      this.id=localStorage.getItem('idjugador')+'';
       this._servicePersona.getPersona(this.id).subscribe(data => {
         this.loading = false;
         this.createPerfil.setValue({
@@ -77,6 +89,13 @@ export class PerfilComponent implements OnInit {
           email: data.payload.data()['email'],
           numero: data.payload.data()['numero'],
           operadora: data.payload.data()['operadora'],
+          puntos:data.payload.data()['puntos'],
+          comunidad:data.payload.data()['comunidad'],
+          gestor:data.payload.data()['gestor'],
+          fechaNacimiento:data.payload.data()['fechaNacimiento'],
+
+
+          
         })
       })
 

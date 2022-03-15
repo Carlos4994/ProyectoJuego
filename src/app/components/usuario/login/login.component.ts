@@ -8,6 +8,8 @@ import { User } from 'src/app/interfaces/User';
 import { ErrorService } from 'src/app/services/error.service';
 import { Rol } from '../../../models/Rol';
 import { RolService } from '../../../services/rol.service';
+import { PersonaService } from '../../../services/persona.service';
+import { Persona } from 'src/app/models/Persona';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +23,17 @@ suscriptionRol: Subscription = new Subscription();
 roladm=false;
   loginForm: FormGroup;
   loading = false;
+  // recuperar personas 
+  personas:Persona [] = [];
+  jugador:Persona | undefined;
 
   constructor(private fb: FormBuilder,
               private afAuth: AngularFireAuth,
               private _errorService: ErrorService,
               private toastr: ToastrService,
               private router: Router,
-              private _rolService: RolService) { 
+              private _rolService: RolService,
+              private _servicePersona:PersonaService) { 
     this.loginForm = this.fb.group({
       usuario: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -53,7 +59,7 @@ roladm=false;
         // Lo redireccionamos al dahsboard
         this.setLocalStorage(respuesta.user)
         localStorage.setItem('nombre',usuario)
-
+        this.obtenerPersona()
         this.getTipoRol(usuario);
         if(this.roladm==true){
           this.router.navigate(['/dashboard'])
@@ -112,6 +118,32 @@ roladm=false;
       } 
     });
   }
+
+
+  obtenerPersona(){
+    const usuario = this.loginForm.get('usuario')?.value;
+    this._servicePersona.getPersonas().subscribe(data => {
+       this.personas = [];
+       data.forEach((element: any) => {
+         this.personas.push({
+           id: element.payload.doc.id,
+           ...element.payload.doc.data()
+         })
+       });
+       
+       this.personas.forEach(element => {
+         if (element.email==usuario) {
+           this.jugador=element;
+         }
+       });
+   
+       //console.log(this.jugador?.id);
+       localStorage.setItem('idjugador',this.jugador?.id+'');
+     });
+   
+   
+   
+   }
 
 
 }

@@ -10,7 +10,7 @@
                     <div class="d-flex justify-content-center mt-3 mb-3">
                         <img class="text center" src="https://cactu.org.ec/wp-content/uploads/2019/11/bbbbbb.png" height="80px">
                        </div>
-                    <form [formGroup]="registerForm" (ngSubmit)="agregarPersona()">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
                         <div class="row mb-3">
                             <div class="col">
                                 <input type="text" formControlName="nombre" class="form-control form-control-lg"
@@ -110,9 +110,6 @@
                         <button routerLink="/usuario" class="btn btn-secondary btn-lg">Volver</button>
                         <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-lg float-end">Aceptar</button>
                     </form>
-
-
-                    <button (click)="obtenerPersona()" class="btn btn-secondary btn-lg">Probar</button>
                 </div>
             </div>
         </div>
