@@ -102,4 +102,27 @@ export class PerfilComponent implements OnInit {
    // }
   }
 
+// pruebas
+
+obtenerJugador(){
+  this.id=localStorage.getItem('idjugador')+'';
+  this._servicePersona.getPersona(this.id).subscribe(data => {
+   
+  const persona:any={
+    email:data.payload.data()['email'],
+      nombre: data.payload.data()['nombre'],
+      numero: data.payload.data()['numero'],
+      operadora: data.payload.data()['operadora'],
+      comunidad: data.payload.data()['comunidad'],
+      gestor: data.payload.data()['gestor'],
+      fechaNacimiento: data.payload.data()['fechaNacimiento'],
+      puntos: data.payload.data()['puntos']
+   }
+  console.log(persona.puntos);
+  })
+
+}
+
+
+
 }

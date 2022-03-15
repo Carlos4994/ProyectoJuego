@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cuestionario } from 'src/app/models/Cuestionario';
+import { Persona } from 'src/app/models/Persona';
 import { RespuestaQuizzService } from 'src/app/services/respuesta-quizz.service';
+import { PersonaService } from '../../../services/persona.service';
 
 @Component({
   selector: 'app-realizar-quizz',
@@ -23,8 +26,13 @@ export class RealizarQuizzComponent implements OnInit, OnDestroy {
   cantidadIncorrectas = 0;
   puntosTotales = 0;
   listRespuestaUsuario: any[] = [];
+  // obtener usuario
+  id:string='';
+  persona:any;
 
   constructor(private _respuestaQuizzService: RespuestaQuizzService,
+    private _personaService:PersonaService,
+    private toastr: ToastrService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -188,6 +196,7 @@ export class RealizarQuizzComponent implements OnInit, OnDestroy {
     }
     
     this.loading = true;
+    this.obtenerJugador();
     // Alamacenamos la respuesta en firebase
     this._respuestaQuizzService.setRespuestaUsuario(respuestaCuestionario).then(data => {
       console.log(data);
@@ -199,6 +208,33 @@ export class RealizarQuizzComponent implements OnInit, OnDestroy {
       this.router.navigate(['/']);
     })
 
+  }
+
+  obtenerJugador(){
+   var cont=0;
+    this.id=localStorage.getItem('idjugador')+'';
+    this._personaService.getPersona(this.id).subscribe(data => {
+     
+     this.persona={
+        email:data.payload.data()['email'],
+        nombre: data.payload.data()['nombre'],
+        numero: data.payload.data()['numero'],
+        operadora: data.payload.data()['operadora'],
+        comunidad: data.payload.data()['comunidad'],
+        gestor: data.payload.data()['gestor'],
+        fechaNacimiento: data.payload.data()['fechaNacimiento'],
+        puntos: data.payload.data()['puntos']+this.puntosTotales
+     }
+     while (cont<=1) {
+      this._personaService.actualizarPersona(this.id,this.persona);
+      cont++;
+     }
+    }
+  
+    );
+    
+   
+   
   }
 
 }

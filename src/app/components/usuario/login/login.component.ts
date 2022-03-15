@@ -27,6 +27,8 @@ roladm=false;
   personas:Persona [] = [];
   jugador:Persona | undefined;
 
+  dato:any;
+
   constructor(private fb: FormBuilder,
               private afAuth: AngularFireAuth,
               private _errorService: ErrorService,
@@ -137,11 +139,13 @@ roladm=false;
          }
        });
    
-       //console.log(this.jugador?.id);
+    
        localStorage.setItem('idjugador',this.jugador?.id+'');
      });
    
-   
+    
+      
+  
    
    }
 

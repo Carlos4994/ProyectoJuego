@@ -10,6 +10,8 @@ import { ListCuestionariosComponent } from './list-cuestionarios/list-cuestionar
 import { VerCuestionarioComponent } from './ver-cuestionario/ver-cuestionario.component';
 import { CrearProvinciaComponent } from './crear-provincia/crear-provincia.component';
 import { ListarPersonasComponent } from './listar-personas/listar-personas.component';
+import { ListPremiosComponent } from './list-premios/list-premios.component';
+import { CrearPremioComponent } from './crear-premio/crear-premio.component';
 
 const routes: Routes = [
   { path: '', component: ListCuestionariosComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'respuestaUsuarioAdmin/:id', component: RespuestaUsuarioComponent },
   { path: 'crearProvincia', component: CrearProvinciaComponent },
   { path: 'listarPersonas', component: ListarPersonasComponent },
+  { path: 'listarPremio', component: ListPremiosComponent },
+  { path: 'crearPremio', component: CrearPremioComponent },
 ];
 
 @NgModule({
