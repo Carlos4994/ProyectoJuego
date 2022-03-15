@@ -1,1 +1,28 @@
-<p>list-premios works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Listado de Premios</span>
+            <button class="btn btn-dark btn-lg float-right" routerLink="/dashboard/crearPremio">Agregar</button>
+            <h5 style="margin-top: 30px;" *ngIf="premios.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="premios.length > 0" class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let empleado of premios">
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.valor }}</td>
+                    <td>
+                      <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editEmpleado/', empleado.id]"></i>
+                      <i (click)="eliminarEmpleado(empleado.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
