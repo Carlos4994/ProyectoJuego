@@ -13,6 +13,10 @@ export class PremioService {
     return this.firestore.collection('premios').add(premio);
   }
 
+  agregarReclamarPrmeio(reclamarPremio: any): Promise<any> {
+    return this.firestore.collection('reclamarPremios').add(reclamarPremio);
+  }
+
   getPremios(): Observable<any> {
     return this.firestore.collection('premios', ref => ref.orderBy('nombre', 'asc')).snapshotChanges();
   }

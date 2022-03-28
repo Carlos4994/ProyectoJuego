@@ -13,26 +13,40 @@
                     <form class="mt-4" [formGroup]="createPerfil" (ngSubmit)="editarPersona()">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control form-control-lg" formControlName="nombre"
+                              <label class="titulo"> Nombre:</label> <input type="text" class="form-control form-control-lg" formControlName="nombre"
                                     placeholder="Nombre">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control form-control-lg mb-3" formControlName="email"
+                                <label class="titulo">Correo:</label> <input type="text" class="form-control form-control-lg mb-3" formControlName="email"
                                     placeholder="Correo" readonly>
                             </div>
                         </div>
-                        <input type="text" class="form-control form-control-lg mb-3" formControlName="numero"
-                           >
-                            <select formControlName="operadora" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                                <option selected>Operadora</option>
-                                <option value="1">Claro</option>
-                                <option value="2">Movistar</option>
-                                <option value="3">Tuenti</option>
-                                <option value="4">Cnt</option>
-                              </select>
+
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <label class="titulo"> Numero:</label>
+                                <input type="text" class="form-control form-control-lg mb-3" formControlName="numero"
+                                   >
+                            </div>
+                            <div class="col">
+                                <label class="titulo"> Operadora:</label>
+                                <select formControlName="operadora" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    <option selected>Operadora</option>
+                                    <option value="1">Claro</option>
+                                    <option value="2">Movistar</option>
+                                    <option value="3">Tuenti</option>
+                                    <option value="4">Cnt</option>
+                                  </select>
+                            </div>
+                         
+                          </div>
+                      
+
+                      
 
                               <div class="row mb-3">
                                 <div class="col">
+                                    <label class="titulo"> Comunidad:</label>
                                     <select formControlName="comunidad" class="form-select form-select-lg mb-3" aria-label="Default select example">
                                         <option selected>Comunidad</option>
                                         <option value="1">Tisaleo Centro</option>
@@ -46,6 +60,7 @@
                                       </select>
                                 </div>
                                 <div class="col">
+                                    <label class="titulo"> Gestorxs:</label>
                                     <select    formControlName="gestor" class="form-select form-select-lg mb-3" aria-label="Default select example">
                                         <option selected>Gestorxs</option>
                                         <option value="1">Lorena Peralta</option>
@@ -59,22 +74,23 @@
                                       </select>
                                 </div>
                                 <div class="col">
+                                    <label class="titulo"> Fecha Nacimiento:</label>
                                     <input  formControlName="fechaNacimiento" type="date"  class="form-control form-control-lg"
                                     >
                                 </div>
                               </div>
                               <div>
+                                <label class="titulo"> Puntos:</label>
                                 <input type="text" class="form-control form-control-lg" formControlName="puntos"
                                  readonly>   
                               </div>
                         <div class="mt-3">
-                            <button type="text" class="btn btn-secondary btn-lg mr-3"
-                                routerLink="/">Volver</button>
-                            <button type="submit" class="btn btn-dark btn-lg">Guardar</button>
+                            <button type="text" class="btn btn-secondary btn-lg mr3"
+                                routerLink="/inicio">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg m3">Guardar</button>
                         </div>
                     </form>
 
-                    <button class="btn btn-dark btn-lg"     (click)="obtenerJugador()">Probar</button>
                 </div>
             </div>
         </div>

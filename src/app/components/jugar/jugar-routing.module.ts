@@ -7,6 +7,7 @@ import { ContadorInicialComponent } from './contador-inicial/contador-inicial.co
 import { IngresarNombreComponent } from './ingresar-nombre/ingresar-nombre.component';
 import { RealizarQuizzComponent } from './realizar-quizz/realizar-quizz.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ReclamarPremioComponent } from './reclamar-premio/reclamar-premio.component';
 
 const routes: Routes = [
   { path: '', component: IngresarNombreComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'realizarQuizz', component: RealizarQuizzComponent },
   { path: 'respuestaUsuario/:id', component: RespuestaUsuarioComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'reclamar', component: ReclamarPremioComponent },
 ];
 
 @NgModule({

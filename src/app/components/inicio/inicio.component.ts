@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Cuestionario } from 'src/app/models/Cuestionario';
@@ -11,13 +12,14 @@ import { RespuestaQuizzService } from 'src/app/services/respuesta-quizz.service'
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit, OnDestroy {
+  dato= localStorage.getItem('nombre');
   error = false;
   pin = '';
   errorText = '';
   loading = false;
   suscriptionCode: Subscription = new Subscription();
 
-  constructor(private respuestaQuizz: RespuestaQuizzService, private router: Router) { }
+  constructor(private respuestaQuizz: RespuestaQuizzService, private router: Router,private afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
@@ -66,6 +68,13 @@ export class InicioComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.error = false;
     }, 4000);
+  }
+
+  logOut() {
+    this.afAuth.signOut();
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('user')
+    this.router.navigate(['/']);
   }
 
 }

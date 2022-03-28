@@ -9,10 +9,11 @@ import { ContadorInicialComponent } from './contador-inicial/contador-inicial.co
 import { RealizarQuizzComponent } from './realizar-quizz/realizar-quizz.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ReclamarPremioComponent } from './reclamar-premio/reclamar-premio.component';
 
 
 @NgModule({
-  declarations: [IngresarNombreComponent, ContadorInicialComponent, RealizarQuizzComponent, NavbarComponent, PerfilComponent],
+  declarations: [IngresarNombreComponent, ContadorInicialComponent, RealizarQuizzComponent, NavbarComponent, PerfilComponent, ReclamarPremioComponent],
   imports: [
     CommonModule,
     JugarRoutingModule,

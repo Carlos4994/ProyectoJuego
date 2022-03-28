@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <!-- <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span> -->
+                    <form class="mt-4" [formGroup]="reclamarForm" (ngSubmit)="obtenerJugador()">
+                        <div class="row">
+                            <div class="col">
+                                <label class="titulo">Elegir Prmeio</label>
+                                <select formControlName="premioselect" id="cambio" class="form-select mb-3" aria-label="Default select example">
+                                    <option *ngFor="let item of premios" [value]="item.id">{{ item.nombre }}</option>
+                                    
+                                  </select>
+
+                            </div>
+                        </div>
+                            <button type="text" class="btn btn-secondary btn-lg mr-3"
+                                routerLink="/inicio">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Reclamar</button>
+                    
+                    </form>
+                </div>
+
+                <div class="card-body">
+                    <span class="h3">Listado de Premios</span>
+                    <h5 style="margin-top: 30px;" *ngIf="premios.length == 0">No hay datos para mostrar</h5>
+                    <table *ngIf="premios.length > 0" class="table table-striped mt-5">
+                        <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let empleado of premios">
+                            <td>{{ empleado.nombre }}</td>
+                            <td>{{ empleado.valor }}</td>
+                          
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+
+       
+        </div>
+</div>
+</div>
