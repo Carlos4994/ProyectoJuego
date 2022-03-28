@@ -21,6 +21,10 @@ export class PremioService {
     return this.firestore.collection('premios', ref => ref.orderBy('nombre', 'asc')).snapshotChanges();
   }
 
+  getPremiosReclamados(): Observable<any> {
+    return this.firestore.collection('reclamarPremios', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
+  }
+
   eliminarpremio(id: string): Promise<any> {
     return this.firestore.collection('premios').doc(id).delete();
   }

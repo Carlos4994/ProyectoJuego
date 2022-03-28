@@ -15,8 +15,8 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
       const user = localStorage.getItem('user');
-
-      if(user === null) {
+      const rol = localStorage.getItem('rol');
+      if(user === null ||  rol ===null) {
         console.log('ruta protegida')
         this.router.navigate(['/']);
       }

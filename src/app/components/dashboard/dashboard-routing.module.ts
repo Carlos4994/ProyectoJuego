@@ -12,6 +12,7 @@ import { CrearProvinciaComponent } from './crear-provincia/crear-provincia.compo
 import { ListarPersonasComponent } from './listar-personas/listar-personas.component';
 import { ListPremiosComponent } from './list-premios/list-premios.component';
 import { CrearPremioComponent } from './crear-premio/crear-premio.component';
+import { ListaPremiosReclamadosComponent } from './lista-premios-reclamados/lista-premios-reclamados.component';
 
 const routes: Routes = [
   { path: '', component: ListCuestionariosComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'listarPremio', component: ListPremiosComponent },
   { path: 'crearPremio', component: CrearPremioComponent },
   { path: 'editarPremio/:id', component: CrearPremioComponent },
+  { path: 'listarPremiosReclamados', component: ListaPremiosReclamadosComponent },
 ];
 
 @NgModule({

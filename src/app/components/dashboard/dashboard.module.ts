@@ -17,6 +17,7 @@ import { CrearProvinciaComponent } from './crear-provincia/crear-provincia.compo
 import { ListarPersonasComponent } from './listar-personas/listar-personas.component';
 import { ListPremiosComponent } from './list-premios/list-premios.component';
 import { CrearPremioComponent } from './crear-premio/crear-premio.component';
+import { ListaPremiosReclamadosComponent } from './lista-premios-reclamados/lista-premios-reclamados.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { CrearPremioComponent } from './crear-premio/crear-premio.component';
     DashboardComponent, 
     NavbarComponent, 
     ListCuestionariosComponent, 
-    CrearQuizzComponent, CrearPreguntasComponent, ListPreguntasComponent, VerCuestionarioComponent, EstadisticasComponent, CrearProvinciaComponent, ListarPersonasComponent, ListPremiosComponent, CrearPremioComponent
+    CrearQuizzComponent, CrearPreguntasComponent, ListPreguntasComponent, VerCuestionarioComponent, EstadisticasComponent, CrearProvinciaComponent, ListarPersonasComponent, ListPremiosComponent, CrearPremioComponent, ListaPremiosReclamadosComponent
   ],
   imports: [
     CommonModule,

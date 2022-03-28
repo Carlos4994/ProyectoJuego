@@ -116,6 +116,7 @@ roladm=false;
 
       if (element.email==email) {
        this.roladm=true;
+       localStorage.setItem('rol','admclmg')
        console.log(element.email);
       } 
     });
