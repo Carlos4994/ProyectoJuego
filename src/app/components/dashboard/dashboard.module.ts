@@ -18,6 +18,7 @@ import { ListarPersonasComponent } from './listar-personas/listar-personas.compo
 import { ListPremiosComponent } from './list-premios/list-premios.component';
 import { CrearPremioComponent } from './crear-premio/crear-premio.component';
 import { ListaPremiosReclamadosComponent } from './lista-premios-reclamados/lista-premios-reclamados.component';
+import { EditarPremioReclamoComponent } from './editar-premio-reclamo/editar-premio-reclamo.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { ListaPremiosReclamadosComponent } from './lista-premios-reclamados/list
     DashboardComponent, 
     NavbarComponent, 
     ListCuestionariosComponent, 
-    CrearQuizzComponent, CrearPreguntasComponent, ListPreguntasComponent, VerCuestionarioComponent, EstadisticasComponent, CrearProvinciaComponent, ListarPersonasComponent, ListPremiosComponent, CrearPremioComponent, ListaPremiosReclamadosComponent
+    CrearQuizzComponent, CrearPreguntasComponent, ListPreguntasComponent, VerCuestionarioComponent, EstadisticasComponent, CrearProvinciaComponent, ListarPersonasComponent, ListPremiosComponent, CrearPremioComponent, ListaPremiosReclamadosComponent, EditarPremioReclamoComponent
   ],
   imports: [
     CommonModule,

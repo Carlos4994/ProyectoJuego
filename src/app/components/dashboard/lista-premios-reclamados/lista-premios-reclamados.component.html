@@ -11,20 +11,19 @@
                
                     <th>Persona</th>
                     <th>Valor</th>
-                    <th>Proceso</th>
+                    <th>Estado</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let empleado of premios">
                     <td>{{ empleado.nombre }}</td>
-                  
                     <td>{{ empleado.persona }}</td>
                     <td>{{ empleado.valor }}</td>
-                    <td>{{ empleado.dado }}</td>
+                    <td >{{ empleado.dado }}</td>
                     <td>
-                      <!-- <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/dashboard/editarPremio/', empleado.id]"></i>
-                      <i (click)="eliminarEmpleado(empleado.id)" class="fas fa-trash-alt fa-lg text-danger"></i> -->
+                       <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/dashboard/editarPremiosReclamados/', empleado.id]"></i>
+                      <!--<i (click)="eliminarEmpleado(empleado.id)" class="fas fa-trash-alt fa-lg text-danger"></i> -->
                     </td>
                   </tr>
                 </tbody>

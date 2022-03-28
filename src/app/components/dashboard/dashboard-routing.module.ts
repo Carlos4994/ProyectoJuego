@@ -13,6 +13,7 @@ import { ListarPersonasComponent } from './listar-personas/listar-personas.compo
 import { ListPremiosComponent } from './list-premios/list-premios.component';
 import { CrearPremioComponent } from './crear-premio/crear-premio.component';
 import { ListaPremiosReclamadosComponent } from './lista-premios-reclamados/lista-premios-reclamados.component';
+import { EditarPremioReclamoComponent } from './editar-premio-reclamo/editar-premio-reclamo.component';
 
 const routes: Routes = [
   { path: '', component: ListCuestionariosComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'crearPremio', component: CrearPremioComponent },
   { path: 'editarPremio/:id', component: CrearPremioComponent },
   { path: 'listarPremiosReclamados', component: ListaPremiosReclamadosComponent },
+  { path: 'editarPremiosReclamados/:id', component: EditarPremioReclamoComponent },
 ];
 
 @NgModule({

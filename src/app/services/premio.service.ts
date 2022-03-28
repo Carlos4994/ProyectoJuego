@@ -37,4 +37,12 @@ export class PremioService {
     return this.firestore.collection('premios').doc(id).update(data);
   }
 
+
+  getpremioReclamado(id: string): Observable<any> {
+    return this.firestore.collection('reclamarPremios').doc(id).snapshotChanges();
+  }
+
+  actualizarpremioReclamado(id: string, data:any): Promise<any> {
+    return this.firestore.collection('reclamarPremios').doc(id).update(data);
+  }
 }
