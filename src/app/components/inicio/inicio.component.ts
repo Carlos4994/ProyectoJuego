@@ -73,7 +73,8 @@ export class InicioComponent implements OnInit, OnDestroy {
   logOut() {
     this.afAuth.signOut();
     localStorage.removeItem('nombre');
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 

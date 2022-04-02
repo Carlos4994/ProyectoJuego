@@ -22,15 +22,16 @@
                             </div>
                             <div class="col">
                                 <input type="text" formControlName="numero" class="form-control form-control-lg"
-                                placeholder="Número">
+                                placeholder="Celular">
                             <span class="text-danger"
                                 *ngIf="registerForm.get('numero')?.hasError('required') && registerForm.get('numero')?.touched">
-                                El Número <strong>es requerido</strong>
+                                El Celular <strong>es requerido</strong>
                             </span>
                             </div>
                             <div class="col">
+                                <label class="titulo">Operadora</label>
                                 <select formControlName="operadora" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                                    <option selected>Operadora</option>
+                                   
                                     <option value="1">Claro</option>
                                     <option value="2">Movistar</option>
                                     <option value="3">Tuenti</option>
@@ -44,8 +45,9 @@
 
                           <div class="row mb-3">
                             <div class="col">
+                                <label class="titulo">Comunidad</label>
                                 <select formControlName="comunidad" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                                    <option selected>Comunidad</option>
+                                    
                                     <option value="1">Tisaleo Centro</option>
                                     <option value="2">Tisaleo Alto</option>
                                     <option value="3">Cevallos</option>
@@ -54,11 +56,21 @@
                                     <option value="6">Santa Rosa Alta</option>
                                     <option value="7">Santa Rosa Alta- Baja</option>
                                     <option value="8">Santa Rosa Centro</option>
+                                    <option value="9">Ignacio Flores</option>
+                                    <option value="10">Poaló</option>
+                                    <option value="11">Pastocalle Norte</option>
+                                    <option value="12">Pastocalle</option>
+                                    <option value="13">Pastocalle Este</option>
+                                    <option value="14">Guaytacama Centro</option>
+                                    <option value="15">Chantilí- Cruz LomaSanto Samana</option>
+                                    <option value="16">Guaytacama Norte- Saquisilí</option>
+                                    <option value="17">Angamarca</option>
                                   </select>
                             </div>
                             <div class="col">
+                                <label class="titulo">Gestorxs</label>
                                 <select    formControlName="gestor" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                                    <option selected>Gestorxs</option>
+                                    
                                     <option value="1">Lorena Peralta</option>
                                     <option value="2">Jaime Vaca</option>
                                     <option value="3">Gabriela Lozada</option>
@@ -67,6 +79,16 @@
                                     <option value="6">José Tisalema</option>
                                     <option value="7">Sonia Jinde</option>
                                     <option value="8">Rocío Villares</option>
+                                    <option value="9">Martha Gutierrez</option>
+                                    <option value="10">Margarita Travéz</option>
+                                    <option value="11">Nataly Iza</option>
+                                    <option value="12">Susana Pila</option>
+                                    <option value="13">Rocío Rivera</option>
+                                    <option value="14">Irma Almache</option>
+                                    <option value="15">Raquel Rubio</option>
+                                    <option value="16">Betty Chiliquinga</option>
+                                    <option value="17">pendiente</option>
+                                   
                                   </select>
                             </div>
                             <div class="col">

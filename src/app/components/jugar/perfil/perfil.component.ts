@@ -72,7 +72,7 @@ export class PerfilComponent implements OnInit {
       this.toastr.success('Perfil editado correctamente!', 'Perfil editado!');
       
     })
-    this.router.navigate(['/']);
+    this.router.navigate(['/inicio']);
   }
 
 

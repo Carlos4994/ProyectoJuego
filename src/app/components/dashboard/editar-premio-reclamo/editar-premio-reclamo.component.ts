@@ -15,7 +15,7 @@ export class EditarPremioReclamoComponent implements OnInit {
   submitted = false;
   loading = false;
   id: string | null;
-  titulo = 'Agregar Empleado';
+  titulo = 'Agregar Insentivo';
   constructor(private fb: FormBuilder,
     private _premiosService: PremioService,
     private router: Router,
@@ -75,7 +75,7 @@ export class EditarPremioReclamoComponent implements OnInit {
 
 
   esEditar() {
-    this.titulo = 'Editar Empleado'
+    this.titulo = 'Editar Insentivo'
     if (this.id !== null) {
       this.loading = true;
       this._premiosService.getpremioReclamado(this.id).subscribe(data => {

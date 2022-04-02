@@ -7,8 +7,9 @@
                     <!-- <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span> -->
                     <form class="mt-4" [formGroup]="reclamarForm" (ngSubmit)="obtenerJugador()">
                         <div class="row">
+                          <label class="titulo">puntos: {{ puntosDeJugador }}</label>
                             <div class="col">
-                                <label class="titulo">Elegir Prmeio</label>
+                                <label class="titulo">Elegir Incentivo</label>
                                 <select formControlName="premioselect" id="cambio" class="form-select mb-3" aria-label="Default select example">
                                     <option *ngFor="let item of premios" [value]="item.id">{{ item.nombre }}</option>
                                     
@@ -24,13 +25,16 @@
                 </div>
 
                 <div class="card-body">
-                    <span class="h3">Listado de Premios</span>
+                    <span class="h3">Listado de Incentivos</span>
+                    
                     <h5 style="margin-top: 30px;" *ngIf="premios.length == 0">No hay datos para mostrar</h5>
+                    
+                   
                     <table *ngIf="premios.length > 0" class="table table-striped mt-5">
                         <thead>
                           <tr>
                             <th>Nombre</th>
-                            <th>Valor</th>
+                            <th>Puntos</th>
                             <th></th>
                           </tr>
                         </thead>

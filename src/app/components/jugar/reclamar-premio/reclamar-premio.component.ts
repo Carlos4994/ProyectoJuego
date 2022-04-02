@@ -20,6 +20,9 @@ export class ReclamarPremioComponent implements OnInit {
 
   valorCostoReclamo= 0;
   nombrePremioReclamado='';
+
+puntosDeJugador='';
+
   constructor(private fb: FormBuilder,private _premioService: PremioService,
     private _personaService:PersonaService,
     private router: Router,) {
@@ -30,6 +33,7 @@ this.reclamarForm=this.fb.group({
      }
 
   ngOnInit(): void {
+    this.obtenerJugadorPuntos();
     this.getPremios();
   }
 
@@ -85,7 +89,7 @@ this.premios.forEach(element => {
      this.id=localStorage.getItem('idjugador')+'';
      this._personaService.getPersona(this.id).subscribe(data => {
       this.buscarPremio(this.reclamarForm.value.premioselect);
-      if((data.payload.data()['puntos']-this.valorCostoReclamo)>0){
+      if((data.payload.data()['puntos']-this.valorCostoReclamo)>=0){
         this.persona={
           email:data.payload.data()['email'],
           nombre: data.payload.data()['nombre'],
@@ -110,6 +114,30 @@ this.premios.forEach(element => {
      );
      
     
+    
+   }
+
+
+
+
+   obtenerJugadorPuntos(){
+   
+  
+     this.id=localStorage.getItem('idjugador')+'';
+     this._personaService.getPersona(this.id).subscribe(data => {
+      console.log(data.payload.data()['puntos']);
+      localStorage.setItem('puntosJugador',data.payload.data()['puntos']+'');
+        
+      
+     
+      
+     }
+  
+   
+     );
+     
+     this.puntosDeJugador= localStorage.getItem('puntosJugador')+'';
+     console.log('holas'+this.puntosDeJugador);
     
    }
 }
