@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark" style="background-color: rgb(51,51,51);">  
+<!-- <nav class="navbar navbar-dark" style="background-color: rgb(51,51,51);">  
     <div class="container ">        
         <a  routerLink="/dashboard" class="navbar-brand titulo">CACTU</a>      
         <li class="nav-item ">
@@ -13,6 +13,33 @@
         <label class="justify-content-end mb-3"style="color:white;">{{dato}}</label>
     </div>
     <button (click)="logOut()" style="margin-right: 10px;" class="btn btn-success">Cerrar sesión</button>
-  </nav> 
+  </nav>  -->
+
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand titulo" routerLink="/dashboard">CACTU</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item ">
+            <a class=" navbar-brand titulo" aria-current="page" routerLink="/dashboard/listarPersonas">Estudiantes</a>
+          </li>
+          <li class="nav-item ">
+            <a class="navbar-brand  titulo" aria-current="page" routerLink="/dashboard/listarPremio">Incentivos</a>
+          </li>
+          <li class="nav-item ">
+            <a class="navbar-brand  titulo" aria-current="page" routerLink="/dashboard/listarPremiosReclamados">Lista Incentivos</a>
+          </li>
+          
+
+
+        </ul>
+        <label class="justify-content-end m-lg-2"style="color:white;">{{dato}}</label>
+        <button (click)="logOut()" style="margin-right: 10px;" class="btn btn-success">Cerrar sesión</button>
+      </div>
+    </div>
+  </nav>
 
   
