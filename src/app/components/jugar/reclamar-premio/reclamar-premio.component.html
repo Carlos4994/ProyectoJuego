@@ -7,7 +7,7 @@
                     <!-- <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span> -->
                     <form class="mt-4" [formGroup]="reclamarForm" (ngSubmit)="obtenerJugador()">
                         <div class="row">
-                          <label class="titulo">puntos: {{ puntosDeJugador }}</label>
+                          <label class="titulo">Puntos: {{ puntosDeJugador }}</label>
                             <div class="col">
                                 <label class="titulo">Elegir Incentivo</label>
                                 <select formControlName="premioselect" id="cambio" class="form-select mb-3" aria-label="Default select example">

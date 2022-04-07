@@ -14,6 +14,8 @@ export class ReclamarPremioComponent implements OnInit {
   
   premios: any[] = [];
 
+  premiosv: any[] = [];
+
   id:string='';
   persona:any;
   reclamarPremio:any;
@@ -33,8 +35,11 @@ this.reclamarForm=this.fb.group({
      }
 
   ngOnInit(): void {
-    this.obtenerJugadorPuntos();
     this.getPremios();
+    this.obtenerJugadorPuntos();
+
+
+   
   }
 
   getPremios() {
@@ -125,19 +130,15 @@ this.premios.forEach(element => {
   
      this.id=localStorage.getItem('idjugador')+'';
      this._personaService.getPersona(this.id).subscribe(data => {
-      console.log(data.payload.data()['puntos']);
+     // console.log(data.payload.data()['puntos']);
       localStorage.setItem('puntosJugador',data.payload.data()['puntos']+'');
-        
-      
-     
-      
      }
-  
-   
      );
      
      this.puntosDeJugador= localStorage.getItem('puntosJugador')+'';
-     console.log('holas'+this.puntosDeJugador);
+     this.premios.forEach(element => {
+      console.log('hola')
+    });
     
    }
 }
