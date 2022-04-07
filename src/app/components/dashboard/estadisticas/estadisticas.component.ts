@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { RespuestaQuizzService } from 'src/app/services/respuesta-quizz.service';
 
+import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-estadisticas',
   templateUrl: './estadisticas.component.html',
@@ -59,6 +61,23 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
       console.log(error);
       this.toastr.error('Opss.. ocurrio un error', 'Error');
     })
+  }
+
+
+  fileName= 'ReportePreguntasTest.xlsx';
+  exportexcel(): void
+  {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'PrimerHoja');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+ 
   }
 
 }
