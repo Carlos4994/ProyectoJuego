@@ -51,6 +51,12 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
     })
   }
 
+imprimirRespuestas(){
+  this.listRespuestasUsuario.forEach(element => {
+    console.log(element.id);
+  });
+}
+
   eliminarRespuestaUsuario(id: string) {
     this.loading = true;
 
