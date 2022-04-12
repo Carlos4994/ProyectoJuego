@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background: #24C6DC;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url(./assets/imagenes/fondo.jpg);
+    width: 100%;
+    height: 100%;
 }
 
 .btn-principal {

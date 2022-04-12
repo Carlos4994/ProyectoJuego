@@ -118,7 +118,7 @@ obtenerJugador(){
       fechaNacimiento: data.payload.data()['fechaNacimiento'],
       puntos: data.payload.data()['puntos']
    }
-  console.log(persona.puntos);
+  //console.log(persona.puntos);
   })
 
 }

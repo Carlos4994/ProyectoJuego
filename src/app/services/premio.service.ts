@@ -21,6 +21,10 @@ export class PremioService {
     return this.firestore.collection('premios', ref => ref.orderBy('nombre', 'asc')).snapshotChanges();
   }
 
+  getPremiosPosibles(puntos:number): Observable<any> {
+    return this.firestore.collection('premios', ref => ref.where('valor','<=',puntos)).snapshotChanges();
+  }
+
   getPremiosReclamados(): Observable<any> {
     return this.firestore.collection('reclamarPremios', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
   }

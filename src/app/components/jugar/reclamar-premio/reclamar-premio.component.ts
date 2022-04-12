@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PersonaService } from 'src/app/services/persona.service';
 import { PremioService } from 'src/app/services/premio.service';
 
@@ -25,9 +26,12 @@ export class ReclamarPremioComponent implements OnInit {
 
 puntosDeJugador='';
 
+puntosAP:number=0;
+
   constructor(private fb: FormBuilder,private _premioService: PremioService,
     private _personaService:PersonaService,
-    private router: Router,) {
+    private router: Router,
+    private toastr: ToastrService) {
 this.reclamarForm=this.fb.group({
   premioselect: ['',],
 })
@@ -37,6 +41,7 @@ this.reclamarForm=this.fb.group({
   ngOnInit(): void {
     this.getPremios();
     this.obtenerJugadorPuntos();
+    this.getPremiosPosibles()
 
 
    
@@ -47,6 +52,20 @@ this.reclamarForm=this.fb.group({
       this.premios = [];
       data.forEach((element: any) => {
         this.premios.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      });
+      
+    });
+  }
+
+  getPremiosPosibles() {
+ this.puntosAP=+this.puntosDeJugador;
+    this._premioService.getPremiosPosibles(this.puntosAP).subscribe(data => {
+      this.premiosv = [];
+      data.forEach((element: any) => {
+        this.premiosv.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
@@ -66,7 +85,9 @@ crearReclamarPemio(){
     }
 
     this._premioService.agregarReclamarPrmeio(reclamarPremio).then(() => {
-     
+      this.toastr.success('El incentivo fue registrado con exito!', 'Incentivo Registrado', {
+        positionClass: 'toast-bottom-right'
+      });
      // this.router.navigate(['/']);
     }).catch(error => {
       console.log(error);
@@ -136,9 +157,7 @@ this.premios.forEach(element => {
      );
      
      this.puntosDeJugador= localStorage.getItem('puntosJugador')+'';
-     this.premios.forEach(element => {
-      console.log('hola')
-    });
+  
     
    }
 }

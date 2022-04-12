@@ -13,6 +13,7 @@
                     <form [formGroup]="registerForm" (ngSubmit)="register()">
                         <div class="row mb-3">
                             <div class="col">
+                                <label class="titulo">Nombre</label>
                                 <input type="text" formControlName="nombre" class="form-control form-control-lg"
                                 placeholder="Nombre">
                             <span class="text-danger"
@@ -21,6 +22,7 @@
                             </span>
                             </div>
                             <div class="col">
+                                <label class="titulo">Celular</label>
                                 <input type="text" formControlName="numero" class="form-control form-control-lg"
                                 placeholder="Celular">
                             <span class="text-danger"
@@ -92,6 +94,7 @@
                                   </select>
                             </div>
                             <div class="col">
+                                <label class="titulo">Fecha de nacimiento</label>
                                 <input  formControlName="fechaNacimiento" type="date"  class="form-control form-control-lg"
                                 placeholder="Número">
                             </div>

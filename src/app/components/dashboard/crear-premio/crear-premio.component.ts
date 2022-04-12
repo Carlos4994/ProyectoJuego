@@ -78,10 +78,10 @@ export class CrearPremioComponent implements OnInit {
 
     this._premioService.actualizarpremio(id, premio).then(() => {
       this.loading = false;
-      this.toastr.info('El empleado fue modificado con exito', 'Empleado modificado', {
+      this.toastr.info('El Incentivo fue modificado con exito', 'Incentivo modificado', {
         positionClass: 'toast-bottom-right'
       })
-      this.router.navigate(['/list-empleados']);
+      this.router.navigate(['/dashboard/listarPremio']);
     })
   }
 
