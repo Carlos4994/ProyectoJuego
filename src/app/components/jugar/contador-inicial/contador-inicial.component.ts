@@ -23,7 +23,6 @@ export class ContadorInicialComponent implements OnInit, OnDestroy {
   playContadorInicial() {
 
    this.setInterval = setInterval(() => {
-      console.log('hola');
       if(this.contador === 0) {
         this.router.navigate(['/jugar/realizarQuizz']);
       }

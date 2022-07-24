@@ -137,6 +137,8 @@ roladm=false;
        this.personas.forEach(element => {
          if (element.email==usuario) {
            this.jugador=element;
+           localStorage.setItem('nombreJuador',element.nombre);
+           console.log(element.nombre);
          }
        });
    

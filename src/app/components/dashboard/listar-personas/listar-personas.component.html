@@ -20,7 +20,27 @@
                     <td>{{ persona.nombre }}</td>
                     <td>{{ persona.email }}</td>
                     <td>{{ persona.comunidad}}</td>
-                    <td>{{ persona.operadora }}</td>
+                    <td [ngSwitch]="persona.operadora">
+<span >
+<p *ngSwitchCase="1">
+Claro
+</p>
+<p *ngSwitchCase="2">
+  Movistar
+</p>
+<p *ngSwitchCase="3">
+  Tuenti
+</p>
+<p *ngSwitchCase="4">
+ Cnt
+</p>
+<p *ngSwitchDefault>
+  
+</p>
+</span>
+
+
+                    </td>
                     <td>{{ persona.numero }}</td>
                     <td>{{ persona.fechaNacimiento }}</td>
                     <td>{{ persona.puntos }}</td>

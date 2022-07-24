@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  dato= localStorage.getItem('nombre');
+  dato= localStorage.getItem('nombreJuador');
   
   constructor(private afAuth: AngularFireAuth,
               private router: Router) { }

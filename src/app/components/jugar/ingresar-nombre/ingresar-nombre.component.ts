@@ -8,10 +8,10 @@ import { RespuestaQuizzService } from 'src/app/services/respuesta-quizz.service'
   styleUrls: ['./ingresar-nombre.component.css']
 })
 export class IngresarNombreComponent implements OnInit {
-  nombre = localStorage.getItem('nombre')+'';
+  nombre = localStorage.getItem('nombreJuador')+'';
   errorText = '';
   error = false;
-  dato=  localStorage.getItem('nombre');
+  dato=  localStorage.getItem('nombreJuador');
   
   constructor(private _respuestaQuizzService: RespuestaQuizzService,
               private router: Router) { }

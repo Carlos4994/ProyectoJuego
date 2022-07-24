@@ -1,14 +1,14 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
-            <span class="h3">Listado de Premios</span>
+            <span class="h3">Listado de Incentivos</span>
             <button class="btn btn-dark btn-lg float-right" routerLink="/dashboard/crearPremio">Agregar</button>
             <h5 style="margin-top: 30px;" *ngIf="premios.length == 0">No hay datos para mostrar</h5>
             <table *ngIf="premios.length > 0" class="table table-striped mt-5">
                 <thead>
                   <tr>
                     <th>Nombre</th>
-                    <th>Valor</th>
+                    <th>Puntos</th>
                     <th></th>
                   </tr>
                 </thead>
